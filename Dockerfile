@@ -1,12 +1,11 @@
-#Using offical maven image as a parent image
-FROM maven:3.5-jdk-8-alpine as build
+FROM debian:unstable-20240311
 
-#Setting the working directory to /app
-WORKDIR /app
+RUN apt update && apt install -y openssh-server sudo bash
 
-#Copy the current directory contents into the container at current directory
-COPY . .
+WORKDIR /etc/ssh
 
-#Display version information
-RUN mvn -v
-RUN mvn -v
+RUN ssh-keygen -A
+
+EXPOSE 22
+
+CMD ["/usr/sbin/sshd", "-D"]
