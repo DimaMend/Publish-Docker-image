@@ -24,4 +24,4 @@ jobs:
         curl https://downloads.mend.io/cli/linux_amd64/mend -o /usr/local/bin/mend && chmod +x /usr/local/bin/mend
         echo run Mend image scan
         mend version
-        mend image dimadockerid1234/xz:1.0.0
+        mend image dimadockerid1234/xz:1.0.0 -s "Dimas BB//xz//CVE-2024-3094"
